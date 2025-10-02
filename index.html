@@ -3,48 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Отображение текста</title>
     <style>
-        .btn_style{
-            border: none;
-            background: none;
-            padding: 1.2rem;
-            border: 1px solid rgb(1,0,81);
-            border-radius: .8rem;
-            background-color: blue;
-            color: blanchedalmond;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            font-size: 2em;
-        }
-        .btn_style:hover{
-            background-color: aqua;
-            color: bisque;
-        }
-        .container{
-            width: 100vw;
-            height: 100vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-        }
+      
     </style>
 </head>
 <body>
-    <div class="container">
-         <!--это комментарий-->
-        <button onclick="change_color();" class="btn_style">Click to change body background</button>
-    </div>
-    <script>
-        const change_color= ()=>{
-            let container = document.querySelector(".container");
-            const letters =["A", "B", "C", "D", "E", "F", "a", "b", "e", "f"]
-            
-            container.style.backgroundColor = `#${Math.round(Math.random()*10)}${Math.round(Math.random()*10)}${Math.round(Math.random()*10)}`;
+    <label for="name">Имя: <input type="text" id="name"></label><br>
+    <label for="time">Дата: <input type="datetime" id="time"></label><br>
+    <label for="title">Заголовок: <input type="text" id="title"></label><br>
+    <p><label for="article">Статья: <p><textarea rows="10" cols="45" name="article" id="article"></textarea></p></label></p>
 
-        };
+    <button onclick="displayText();" class="btn_style">Передать</button>
+
+    <div id="output">
+
+    </div>
+
+    <script>
+        const displayText = () => {
+            const name = document.getElementById("name").value;
+            const time = document.getElementById("time").value;
+            const title = document.getElementById("title").value;
+            const article = document.getElementById("article").value;
+
+            const outputDiv = document.getElementById("output");
+
+            let outputHTML = `
+                <h2>${title}</h2>
+                <p><b>Имя:</b> ${name}</p>
+                <p><b>Дата:</b> ${time}</p>
+                <p><b>Статья:</b><br>${article}</p>
+            `;
+        
+            outputDiv.innerHTML = outputHTML; 
+        }
     </script>
 </body>
 </html>
