@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn_style{
+            border: none;
+            background: none;
+            padding: 1.2rem;
+            border: 1px solid rgb(1,0,81);
+            border-radius: .8rem;
+            background-color: blue;
+            color: blanchedalmond;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 2em;
+        }
+        .btn_style:hover{
+            background-color: aqua;
+            color: bisque;
+        }
+        .container{
+            width: 100vw;
+            height: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button onclick="change_color();" class="btn_style">Click to change body background</button>
+    </div>
+    <script>
+        const change_color= ()=>{
+            let container = document.querySelector(".container");
+            const letters =["A", "B", "C", "D", "E", "F", "a", "b", "e", "f"]
+            
+            container.style.backgroundColor = '#${letters[${Math.round(Math.random()*10)}]}${Math.round(Math.random()*10)}{letters[${Math.round(Math.random()*10)}]}${Math.round(Math.random()*10)}{letters[${Math.round(Math.random()*10)}]}${Math.round(Math.random()*10)}';
+        };
+    </script>
+</body>
+</html>
